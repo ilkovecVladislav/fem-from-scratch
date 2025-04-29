@@ -152,6 +152,10 @@
     navigation: auto;
   }
 
+  ::view-transition-group(root) {
+    animation-duration: 3s;
+  }
+
   @media (prefers-reduced-motion: no-preference) {
     html {
       scroll-behavior: smooth;
@@ -415,6 +419,10 @@
     background-size: cover;
     font-size: var(--font-size-md);
     color: var(--text-high-contrast);
+
+    animation: fade-out forwards;
+    animation-timeline: view();
+    animation-range-start: exit;
   }
 
   .hero__title {
@@ -636,5 +644,14 @@
     position: absolute;
     white-space: nowrap;
     width: 1px;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
   }
 }
